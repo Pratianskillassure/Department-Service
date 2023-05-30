@@ -1,0 +1,37 @@
+server:
+  port: 8095
+  servlet:
+    context-path: /department  
+spring:   
+  application:  
+    name: department-service
+  datasource: 
+    url: jdbc:postgresql://localhost:5432/departmentBT?CreateDatabaseIfNotExist=true
+    username: postgres
+    password: 1234   
+
+    driver-class-name: org.postgresql.Driver   
+  jpa:
+    hibernate:
+     ddl-auto: update
+    properties:
+      hibernate:
+        dialect : org.hibernate.dialect.PostgreSQLDialect 
+        namingStrategy: org.hibernate.cfg.PhysicalNamingStrategy
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+    
+  cloud:
+    discovery:
+      enabled: false  
+      
+swagger:  
+  url: http://localhost:8095/department 
+  
+
+    
+
+
+

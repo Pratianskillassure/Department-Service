@@ -1,0 +1,32 @@
+server:
+  port: 8094
+  servlet:
+    context-path: /department
+spring:
+  application:
+    name: department-service
+  datasource: 
+    url: jdbc:postgresql://britistelecom.postgres.database.azure.com:5432/departmentBT
+    username: rohith  
+    password: password@123
+#    initialization-mode: always  
+    driver-class-name: org.postgresql.Driver    
+  jpa:
+    hibernate:
+     ddl-auto: update  
+    properties:
+      hibernate:
+        dialect : org.hibernate.dialect.PostgreSQL95Dialect 
+        namingStrategy: org.hibernate.cfg.PhysicalNamingStrategy
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+    
+  cloud:
+    discovery:
+      enabled: true
+         
+swagger:
+  url: https://departmentservice.dev.skillassure.com/department
+
